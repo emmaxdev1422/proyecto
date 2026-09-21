@@ -1,10 +1,10 @@
-/* RESETEO BÁSICO Y PALETA BASADA EN ESCUDO SERRANOBLE */
+/* VARIABLES Y PALETA EXTRAÍDA DEL ESCUDO SERRANOBLE */
 :root {
-    --azul-oscuro: #0F1E36;   /* Fondo principal del escudo */
-    --dorado: #E5B232;        /* Espigas y rayos del sol */
-    --dorado-hover: #C99820;  /* Hover para botones */
-    --crema: #FFF9E6;         /* Sol brillante / Fondo claro */
-    --marron: #6E472A;        /* Montañas del escudo */
+    --azul-oscuro: #0F1E36;   /* Fondo oficial del escudo */
+    --dorado: #E5B232;        /* Espigas y rayos */
+    --dorado-hover: #C99820;  /* Estado hover de botones */
+    --crema: #FFF9E6;         /* Sol y fondos claros */
+    --marron: #6E472A;        /* Montañas */
     --gris-fondo: #F4F6F8;
     --texto-oscuro: #1A202C;
 }
@@ -31,6 +31,8 @@ body {
     padding: 0.8rem 5%;
     color: white;
     border-bottom: 3px solid var(--dorado);
+    position: relative;
+    z-index: 100;
 }
 
 .logo {
@@ -40,20 +42,20 @@ body {
 }
 
 .logo-img {
-    height: 52px;
+    height: 50px;
     width: auto;
     object-fit: contain;
 }
 
 .logo-text h2 {
-    font-size: 0.75rem;
+    font-size: 0.7rem;
     letter-spacing: 2px;
     color: var(--dorado);
     font-weight: 600;
 }
 
 .logo-text h1 {
-    font-size: 1.3rem;
+    font-size: 1.25rem;
     letter-spacing: 1.5px;
     color: #FFFFFF;
     font-weight: 800;
@@ -91,7 +93,6 @@ body {
 
 .btn-primary:hover {
     background-color: var(--dorado-hover);
-    transform: translateY(-1px);
 }
 
 .btn-secondary {
@@ -121,10 +122,24 @@ body {
     margin-top: 15px;
 }
 
+/* MENÚ HAMBURGUESA (Oculto en Computadoras) */
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.8rem;
+    cursor: pointer;
+}
+
+.mobile-only-btn {
+    display: none;
+}
+
 /* HERO SECTION */
 .hero {
     background: linear-gradient(135deg, var(--crema) 0%, #E2E8F0 100%);
-    padding: 90px 5%;
+    padding: 80px 5%;
     text-align: center;
     border-bottom: 1px solid #E2E8F0;
 }
@@ -135,13 +150,13 @@ body {
 }
 
 .hero h1 {
-    font-size: 2.6rem;
+    font-size: 2.5rem;
     color: var(--azul-oscuro);
     margin-bottom: 15px;
 }
 
 .hero p {
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     color: #4A5568;
     margin-bottom: 30px;
 }
@@ -187,7 +202,7 @@ body {
 }
 
 .card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
@@ -240,7 +255,7 @@ body {
 }
 
 .modal-logo {
-    height: 60px;
+    height: 55px;
     margin-bottom: 10px;
 }
 
@@ -300,4 +315,90 @@ footer {
     margin-top: 50px;
     font-size: 0.9rem;
     border-top: 3px solid var(--dorado);
+}
+
+/* ==========================================
+   ADAPTACIÓN RESPONSIVA (CELULARES Y TABLETS)
+   ========================================== */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.8rem 4%;
+    }
+
+    .logo-img {
+        height: 40px;
+    }
+
+    .logo-text h1 {
+        font-size: 1.05rem;
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .desktop-btn {
+        display: none;
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--azul-oscuro);
+        border-bottom: 3px solid var(--dorado);
+        padding: 20px 0;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.2);
+    }
+
+    nav.active {
+        display: block;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+    }
+
+    .mobile-only-btn {
+        display: block;
+        margin-top: 5px;
+    }
+
+    .hero {
+        padding: 50px 20px;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .btn-large {
+        width: 100%;
+    }
+
+    .servicios-container {
+        padding: 40px 20px;
+    }
+
+    .cards-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        width: 90%;
+        padding: 25px 20px;
+    }
 }
