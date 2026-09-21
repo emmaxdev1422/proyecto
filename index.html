@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Municipio de Serranoble - Portal Ciudadano</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- NAV / ENCABEZADO -->
+    <header class="navbar">
+        <div class="logo">
+            <!-- Imagen cargada desde la carpeta del proyecto -->
+            <img src="ESCUDO3.png" alt="Escudo de Serranoble" class="logo-img">
+            <div class="logo-text">
+                <h2>MUNICIPIO DE</h2>
+                <h1>SERRANOBLE</h1>
+            </div>
+        </div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#servicios">Servicios</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+        <button class="btn-primary" onclick="openLogin()">Iniciar Sesión</button>
+    </header>
+
+    <!-- SECCIÓN HERO -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Bienvenido a Municipio Activo Serranoble</h1>
+            <p>Gestioná tus trámites, reclamos y consultas de forma rápida, segura y transparente desde un solo lugar.</p>
+            <div class="hero-buttons">
+                <button class="btn-primary btn-large" onclick="openLogin()">Acceder al Panel</button>
+                <a href="#servicios" class="btn-secondary btn-large">Ver Servicios</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN SERVICIOS -->
+    <section id="servicios" class="servicios-container">
+        <h2>Servicios Municipales</h2>
+        <p class="subtitle">Conocé las solicitudes y reportes que podés realizar online</p>
+        
+        <div class="cards-grid">
+            <!-- Card 1 -->
+            <div class="card">
+                <div class="icon">💡</div>
+                <h3>Recambio de Luminarias</h3>
+                <p>Solicitá reparación o reemplazo de luminarias defectuosas en la vía pública.</p>
+            </div>
+            <!-- Card 2 -->
+            <div class="card">
+                <div class="icon">🧹</div>
+                <h3>Limpieza y Higiene</h3>
+                <p>Consultá el cronograma de recolección y reportá acumulación de residuos.</p>
+            </div>
+            <!-- Card 3 -->
+            <div class="card">
+                <div class="icon">🛣️</div>
+                <h3>Bacheo y Mantenimiento</h3>
+                <p>Informá sobre baches, veredas rotas o problemas en la calzada.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE LOGIN -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <div class="modal-header">
+                <img src="ESCUDO3.png" alt="Escudo Serranoble" class="modal-logo">
+                <h2>Iniciar Sesión</h2>
+                <p class="modal-sub">Ingresá tu DNI y contraseña para acceder</p>
+            </div>
+            
+            <form id="loginForm" onsubmit="validarLogin(event)">
+                <div class="form-group">
+                    <label for="usuario">DNI, CUIL o Email</label>
+                    <input type="text" id="usuario" placeholder="Ej: 38123456" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div id="errorAlert" class="alert-error" style="display: none;">
+                    Por favor, completá todos los campos correctamente.
+                </div>
+
+                <button type="submit" class="btn-primary btn-block">Ingresar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Municipalidad de Serranoble - ISFTP Ing. Otto Krause</p>
+    </footer>
+
+    <script>
+        function openLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function validarLogin(event) {
+            event.preventDefault();
+            const usuario = document.getElementById('usuario').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const alert = document.getElementById('errorAlert');
+
+            if (usuario === '' || password === '') {
+                alert.style.display = 'block';
+            } else {
+                alert.style.display = 'none';
+                alert('¡Validación correcta! Redirigiendo al Panel Ciudadano...');
+                closeLogin();
+            }
+        }
+    </script>
+</body>
+</html>
