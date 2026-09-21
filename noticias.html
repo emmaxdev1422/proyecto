@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Municipio de Serranoble - Sitio Oficial</title>
+    <title>Noticias - Municipio de Serranoble</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -22,9 +22,9 @@
 
         <nav id="navMenu">
             <ul class="nav-links">
-                <li><a href="index.html" class="active-link" onclick="closeMenu()">Inicio</a></li>
-                <li><a href="noticias.html" onclick="closeMenu()">Noticias</a></li>
-                <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
+                <li><a href="index.html" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="noticias.html" class="active-link" onclick="closeMenu()">Noticias</a></li>
+                <li><a href="index.html#servicios" onclick="closeMenu()">Servicios</a></li>
                 <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
                 <li class="mobile-only-btn">
                     <button class="btn-primary" onclick="openLogin(); closeMenu()">Acceder</button>
@@ -35,46 +35,72 @@
         <button class="btn-primary desktop-btn" onclick="openLogin()">Acceder</button>
     </header>
 
-    <!-- SECCIÓN HERO PRINCIPAL -->
-    <section class="hero">
+    <!-- BANNER NOTICIAS -->
+    <section class="hero hero-secondary">
         <div class="hero-content">
-            <h1>Bienvenido al Portal Ciudadano de Serranoble</h1>
-            <p>Accedé a trámites en línea, información pública y los principales servicios municipales desde un solo lugar.</p>
-            <div class="hero-buttons">
-                <button class="btn-primary btn-large" onclick="openLogin()">Iniciar Sesión / Registro</button>
-                <a href="noticias.html" class="btn-secondary btn-large">Ver Novedades</a>
-            </div>
+            <h1>Portal de Noticias y Novedades</h1>
+            <p>Información oficial, anuncios y novedades del Municipio de Serranoble.</p>
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
-    <section id="servicios" class="servicios-container">
-        <h2>Servicios Municipales</h2>
-        <p class="subtitle">Gestiones rápidas y eficientes al servicio de la comunidad</p>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <div class="icon">📄</div>
-                <h3>Trámites en Línea</h3>
-                <p>Solicitá turnos, certificados de vecindad y guías comerciales sin moverte de tu hogar.</p>
-            </div>
-            <div class="card">
-                <div class="icon">💳</div>
-                <h3>Pago de Tasas</h3>
-                <p>Consultá tu estado de deuda e imprimí o aboná las tasas municipales de forma segura.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🗣️</div>
-                <h3>Atención al Vecino</h3>
-                <p>Realizá reclamos sobre servicios públicos, alumbrado y mantenimiento de caminos rural.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🌳</div>
-                <h3>Medio Ambiente</h3>
-                <p>Información sobre recolección diferenciada, uso de acuíferos y calendarios verdes.</p>
-            </div>
+    <!-- LISTADO DE NOTICIAS CON IMÁGENES REALES -->
+    <main class="noticias-container">
+        <div class="noticias-grid">
+            
+            <!-- Noticia 1: Obra Pública -->
+            <article class="noticia-card">
+                <div class="noticia-img-wrapper">
+                    <img src="obra.jpg.jpg" alt="Construcción del viaducto en Serranoble" class="noticia-img">
+                    <div class="noticia-tag">Obra Pública</div>
+                </div>
+                <div class="noticia-content">
+                    <span class="noticia-fecha">📅 21 de Septiembre, 2026</span>
+                    <h3>Comienzan los trabajos del viaducto que unirá las pedanías del norte de Serranoble</h3>
+                    <p>Esta importante infraestructura permitirá conectar por primera vez los caseríos de la zona alta con el centro urbano del municipio, reduciendo el tiempo de trayecto a la mitad y mejorando el tráfico de mercancías agrícolas entre los valles.</p>
+                </div>
+            </article>
+
+            <!-- Noticia 2: Política -->
+            <article class="noticia-card">
+                <div class="noticia-img-wrapper">
+                    <img src="politica.jpg.jpg" alt="Consulta ciudadana sobre la gestión del agua" class="noticia-img">
+                    <div class="noticia-tag">Política</div>
+                </div>
+                <div class="noticia-content">
+                    <span class="noticia-fecha">📅 21 de Septiembre, 2026</span>
+                    <h3>El municipio aprueba la primera consulta ciudadana sobre la gestión del agua municipal</h3>
+                    <p>Vecinos de todos los barrios y pedanías de Serranoble votarán este mes el nuevo plan de gestión de los acuíferos de la sierra, una medida pionera en el municipio para hacer frente a las épocas de sequía y garantizar el riego rural.</p>
+                </div>
+            </article>
+
+            <!-- Noticia 3: Festival -->
+            <article class="noticia-card">
+                <div class="noticia-img-wrapper">
+                    <img src="cultura.jpg.jpg" alt="Festival Internacional de Música de Montaña" class="noticia-img">
+                    <div class="noticia-tag">Festival</div>
+                </div>
+                <div class="noticia-content">
+                    <span class="noticia-fecha">📅 20 de Septiembre, 2026</span>
+                    <h3>El Municipio de Serranoble acoge la X edición del Festival Internacional de Música de Montaña</h3>
+                    <p>Las plazas, prados y miradores a lo largo de todo el término municipal se convertirán en escenarios al aire libre durante cuatro días, atrayendo a visitantes de toda la región y dinamizando la economía local de comercios y posadas.</p>
+                </div>
+            </article>
+
+            <!-- Noticia 4: Salud -->
+            <article class="noticia-card">
+                <div class="noticia-img-wrapper">
+                    <img src="salud.jpg.jpg" alt="Programa de enfermería comunitaria en Serranoble" class="noticia-img">
+                    <div class="noticia-tag">Salud</div>
+                </div>
+                <div class="noticia-content">
+                    <span class="noticia-fecha">📅 19 de Septiembre, 2026</span>
+                    <h3>Todo el municipio completa la implantación del nuevo programa de enfermería comunitaria</h3>
+                    <p>El plan asistencial ya cubre tanto el casco urbano como los núcleos rurales aislados de Serranoble, garantizando que el personal sanitario realice visitas a domicilio y controles periódicos a la población de mayor edad en cada rincón del territorio.</p>
+                </div>
+            </article>
+
         </div>
-    </section>
+    </main>
 
     <!-- MODAL DE ACCESO / REGISTRO -->
     <div id="loginModal" class="modal">
@@ -152,7 +178,7 @@
 
     <!-- FOOTER -->
     <footer id="contacto">
-        <p>&copy; 2026 Municipalidad de Serranoble — muniserranoble@correo.com</p>
+        <p>&copy; 2026 Municipalidad de Serranoble — ISFTP Ing. Otto Krause</p>
     </footer>
 
     <!-- LÓGICA JAVASCRIPT -->

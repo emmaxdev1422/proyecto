@@ -1,14 +1,19 @@
-/* VARIABLES Y PALETA EXTRAÍDA DEL ESCUDO SERRANOBLE */
+/* ==========================================================================
+   VARIABLES Y PALETA DE COLORES (ESCUDO Y MARCA SERRANOBLE)
+   ========================================================================== */
 :root {
-    --azul-oscuro: #0F1E36;   /* Fondo oficial del escudo */
-    --dorado: #E5B232;        /* Espigas y rayos */
-    --dorado-hover: #C99820;  /* Estado hover de botones */
-    --crema: #FFF9E6;         /* Sol y fondos claros */
-    --marron: #6E472A;        /* Montañas */
+    --azul-oscuro: #0F1E36;   
+    --dorado: #E5B232;        
+    --dorado-hover: #C99820;  
+    --crema: #FFF9E6;         
+    --marron: #6E472A;        
     --gris-fondo: #F4F6F8;
     --texto-oscuro: #1A202C;
 }
 
+/* ==========================================================================
+   RESETS Y ESTILOS GENERALES
+   ========================================================================== */
 * {
     margin: 0;
     padding: 0;
@@ -22,14 +27,16 @@ body {
     line-height: 1.6;
 }
 
-/* ENCABEZADO / NAVBAR */
+/* ==========================================================================
+   ENCABEZADO Y NAVEGACIÓN (NAVBAR)
+   ========================================================================== */
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: var(--azul-oscuro);
     padding: 0.8rem 5%;
-    color: white;
+    color: #FFFFFF;
     border-bottom: 3px solid var(--dorado);
     position: relative;
     z-index: 100;
@@ -69,17 +76,21 @@ body {
 }
 
 .nav-links a {
-    color: white;
+    color: #FFFFFF;
     text-decoration: none;
     font-weight: 500;
     transition: color 0.3s;
 }
 
-.nav-links a:hover {
+.nav-links a:hover,
+.nav-links a.active-link {
     color: var(--dorado);
+    font-weight: 700;
 }
 
-/* BOTONES */
+/* ==========================================================================
+   BOTONES Y COMPONENTES REUTILIZABLES
+   ========================================================================== */
 .btn-primary {
     background-color: var(--dorado);
     color: var(--azul-oscuro);
@@ -109,7 +120,7 @@ body {
 
 .btn-secondary:hover {
     background-color: var(--azul-oscuro);
-    color: white;
+    color: #FFFFFF;
 }
 
 .btn-large {
@@ -122,12 +133,11 @@ body {
     margin-top: 15px;
 }
 
-/* MENÚ HAMBURGUESA (Oculto en Computadoras) */
 .mobile-menu-btn {
     display: none;
     background: none;
     border: none;
-    color: white;
+    color: #FFFFFF;
     font-size: 1.8rem;
     cursor: pointer;
 }
@@ -136,12 +146,18 @@ body {
     display: none;
 }
 
-/* HERO SECTION */
+/* ==========================================================================
+   SECCIONES HERO (PRINCIPAL Y SECUNDARIA)
+   ========================================================================== */
 .hero {
     background: linear-gradient(135deg, var(--crema) 0%, #E2E8F0 100%);
     padding: 80px 5%;
     text-align: center;
     border-bottom: 1px solid #E2E8F0;
+}
+
+.hero-secondary {
+    padding: 50px 5%;
 }
 
 .hero-content {
@@ -167,7 +183,9 @@ body {
     gap: 15px;
 }
 
-/* SERVICIOS */
+/* ==========================================================================
+   SECCIÓN SERVICIOS
+   ========================================================================== */
 .servicios-container {
     padding: 70px 5%;
     text-align: center;
@@ -192,7 +210,7 @@ body {
 }
 
 .card {
-    background-color: white;
+    background-color: #FFFFFF;
     padding: 35px 25px;
     border-radius: 10px;
     border: 1px solid #E2E8F0;
@@ -216,7 +234,99 @@ body {
     margin-bottom: 12px;
 }
 
-/* MODAL DE LOGIN */
+/* ==========================================================================
+   PORTAL DE NOTICIAS (NOTICIAS.HTML)
+   ========================================================================== */
+.noticias-container {
+    padding: 60px 5%;
+}
+
+.noticias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.noticia-card {
+    background-color: #FFFFFF;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #E2E8F0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.noticia-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.12);
+}
+
+.noticia-img-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.noticia-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.noticia-card:hover .noticia-img {
+    transform: scale(1.05);
+}
+
+.noticia-tag {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background-color: var(--azul-oscuro);
+    color: var(--dorado);
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.noticia-content {
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.noticia-fecha {
+    font-size: 0.85rem;
+    color: #718096;
+    margin-bottom: 10px;
+}
+
+.noticia-content h3 {
+    color: var(--azul-oscuro);
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+    line-height: 1.4;
+}
+
+.noticia-content p {
+    color: #4A5568;
+    font-size: 0.92rem;
+    line-height: 1.5;
+}
+
+/* ==========================================================================
+   MODAL DE ACCESO Y REGISTRO
+   ========================================================================== */
 .modal {
     display: none;
     position: fixed;
@@ -231,7 +341,7 @@ body {
 }
 
 .modal-content {
-    background-color: white;
+    background-color: #FFFFFF;
     padding: 35px;
     border-radius: 12px;
     width: 100%;
@@ -267,6 +377,38 @@ body {
 .modal-sub {
     font-size: 0.9rem;
     color: #718096;
+}
+
+.auth-tabs {
+    display: flex;
+    border-bottom: 2px solid #E2E8F0;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    flex: 1;
+    background: none;
+    border: none;
+    padding: 10px 0;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: #718096;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+
+.tab-btn.active {
+    color: var(--azul-oscuro);
+    border-bottom-color: var(--dorado);
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
 }
 
 .form-group {
@@ -306,7 +448,9 @@ body {
     text-align: center;
 }
 
-/* FOOTER */
+/* ==========================================================================
+   PIE DE PÁGINA (FOOTER)
+   ========================================================================== */
 footer {
     background-color: var(--azul-oscuro);
     color: #A0AEC0;
@@ -317,9 +461,9 @@ footer {
     border-top: 3px solid var(--dorado);
 }
 
-/* ==========================================
+/* ==========================================================================
    ADAPTACIÓN RESPONSIVA (CELULARES Y TABLETS)
-   ========================================== */
+   ========================================================================== */
 @media (max-width: 768px) {
     .navbar {
         padding: 0.8rem 4%;
@@ -389,11 +533,13 @@ footer {
         width: 100%;
     }
 
-    .servicios-container {
+    .servicios-container,
+    .noticias-container {
         padding: 40px 20px;
     }
 
-    .cards-grid {
+    .cards-grid,
+    .noticias-grid {
         grid-template-columns: 1fr;
     }
 
