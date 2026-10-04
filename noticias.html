@@ -26,13 +26,16 @@
                 <li><a href="noticias.html" class="active-link" onclick="closeMenu()">Noticias</a></li>
                 <li><a href="index.html#servicios" onclick="closeMenu()">Servicios</a></li>
                 <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
-                <li class="mobile-only-btn">
+                <li class="mobile-only-btn" id="mobileAuthContainer">
                     <button class="btn-primary" onclick="openLogin(); closeMenu()">Acceder</button>
                 </li>
             </ul>
         </nav>
 
-        <button class="btn-primary desktop-btn" onclick="openLogin()">Acceder</button>
+        <!-- Contenedor dinámico de sesión (Escritorio) -->
+        <div id="desktopAuthContainer">
+            <button class="btn-primary desktop-btn" onclick="openLogin()">Acceder</button>
+        </div>
     </header>
 
     <!-- BANNER NOTICIAS -->
@@ -181,82 +184,7 @@
         <p>&copy; 2026 Municipalidad de Serranoble — ISFTP Ing. Otto Krause</p>
     </footer>
 
-    <!-- LÓGICA JAVASCRIPT -->
-    <script>
-        function toggleMenu() {
-            document.getElementById('navMenu').classList.toggle('active');
-        }
-
-        function closeMenu() {
-            document.getElementById('navMenu').classList.remove('active');
-        }
-
-        function openLogin() {
-            document.getElementById('loginModal').style.display = 'flex';
-        }
-
-        function closeLogin() {
-            document.getElementById('loginModal').style.display = 'none';
-        }
-
-        function switchAuthTab(tab) {
-            const tabs = document.querySelectorAll('.tab-btn');
-            const forms = document.querySelectorAll('.auth-form');
-
-            tabs.forEach(t => t.classList.remove('active'));
-            forms.forEach(f => f.classList.remove('active'));
-
-            if (tab === 'login') {
-                tabs[0].classList.add('active');
-                document.getElementById('loginForm').classList.add('active');
-            } else {
-                tabs[1].classList.add('active');
-                document.getElementById('registerForm').classList.add('active');
-            }
-        }
-
-        function validarLogin(event) {
-            event.preventDefault();
-            const usuario = document.getElementById('usuario').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const alert = document.getElementById('errorAlertLogin');
-
-            if (usuario === '' || password === '') {
-                alert.innerText = 'Por favor, completá todos los campos correctamente.';
-                alert.style.display = 'block';
-            } else {
-                alert.style.display = 'none';
-                alert('¡Inicio de sesión exitoso!');
-                closeLogin();
-            }
-        }
-
-        function validarRegistro(event) {
-            event.preventDefault();
-            const nombre = document.getElementById('regNombre').value.trim();
-            const dni = document.getElementById('regDni').value.trim();
-            const email = document.getElementById('regEmail').value.trim();
-            const pass = document.getElementById('regPass').value.trim();
-            const alert = document.getElementById('errorAlertRegister');
-
-            const soloNumeros = /^[0-9]+$/;
-
-            if (nombre === '' || dni === '' || email === '' || pass === '') {
-                alert.innerText = 'Por favor, completá todos los datos para crear tu cuenta.';
-                alert.style.display = 'block';
-                return;
-            }
-
-            if (!soloNumeros.test(dni)) {
-                alert.innerText = 'El DNI/CUIL debe contener únicamente números sin puntos ni espacios.';
-                alert.style.display = 'block';
-                return;
-            }
-
-            alert.style.display = 'none';
-            alert('¡Registro completado con éxito! Ya podés acceder con tu usuario.');
-            switchAuthTab('login');
-        }
-    </script>
+    <!-- VINCULACIÓN CON EL SCRIPT EXTERNO -->
+    <script src="script.js"></script>
 </body>
 </html>
