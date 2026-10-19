@@ -677,3 +677,11 @@ body {
 iframe {
     max-width: 100%;
 }
+
+/* ==========================================================================
+   9. CORRECCIÓN GLOBAL DE CONTENEDORES Y TARJETAS EN MÓVILES
+   ========================================================================== */
+div, section, article, .card, .noticia-card {
+    max-width: 100%;
+    box-sizing: border-box;
+}
