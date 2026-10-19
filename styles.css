@@ -678,9 +678,29 @@ iframe {
 }
 
 /* ==========================================================================
-   9. CORRECCIÓN GLOBAL DE CONTENEDORES Y TARJETAS EN MÓVILES
+   9. CORRECCIÓN DEFINITIVA DE DISEÑO RESPONSIVO PARA MÓVILES
    ========================================================================== */
-div, section, article, .card, .noticia-card {
-    max-width: 100%;
-    box-sizing: border-box;
+@media (max-width: 850px) {
+    main {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+
+    .cards-grid, .noticias-grid {
+        grid-template-columns: 100% !important;
+        gap: 20px !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+
+    .card, .noticia-card {
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+
+    div[style*="display: flex; justify-content: space-between"] {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 6px !important;
+    }
 }
