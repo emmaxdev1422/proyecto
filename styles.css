@@ -377,12 +377,11 @@ main {
 .card {
     background: var(--blanco);
     border-radius: 12px;
-    padding: 30px 22px;
+    padding: 35px 22px 30px 22px;
     border: 1px solid var(--gris-borde);
     box-shadow: var(--sombra-suave);
     transition: var(--transicion);
     position: relative;
-    overflow: hidden;
     max-width: 100%;
     box-sizing: border-box;
 }
@@ -418,7 +417,7 @@ main {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 0 auto 18px auto;
+    margin: 0 auto 15px auto;
     border: 2px solid #FDE68A;
     box-shadow: 0 4px 8px rgba(245, 158, 11, 0.15);
 }
