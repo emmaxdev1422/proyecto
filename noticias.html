@@ -18,14 +18,17 @@
             </div>
         </div>
 
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+        <!-- RELOJ Y CLIMA CIUDADANO -->
+        <div class="reloj-ciudadano" id="relojCiudadano"></div>
+
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú de navegación" aria-expanded="false">☰</button>
 
         <nav id="navMenu">
             <ul class="nav-links">
                 <li><a href="index.html" onclick="closeMenu()">Inicio</a></li>
                 <li><a href="noticias.html" class="active-link" onclick="closeMenu()">Noticias</a></li>
-                <li><a href="index.html#servicios" onclick="closeMenu()">Servicios</a></li>
-                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+                <li><a href="tramites.html" onclick="closeMenu()">Trámites</a></li>
+                <li><a href="contacto.html" onclick="closeMenu()">Contacto</a></li>
                 <li class="mobile-only-btn" id="mobileAuthContainer">
                     <button class="btn-primary" onclick="openLogin(); closeMenu()">Acceder</button>
                 </li>
@@ -38,15 +41,15 @@
         </div>
     </header>
 
-    <!-- BANNER NOTICIAS -->
-    <section class="hero hero-secondary">
+    <!-- BANNER NOTICIAS CON FONDO DE PRENSA -->
+    <section class="hero hero-secondary hero-noticias">
         <div class="hero-content">
             <h1>Portal de Noticias y Novedades</h1>
             <p>Información oficial, anuncios y novedades del Municipio de Serranoble.</p>
         </div>
     </section>
 
-    <!-- LISTADO DE NOTICIAS CON IMÁGENES REALES -->
+    <!-- LISTADO DE NOTICIAS -->
     <main class="noticias-container">
         <div class="noticias-grid">
             
@@ -106,20 +109,20 @@
     </main>
 
     <!-- MODAL DE ACCESO / REGISTRO -->
-    <div id="loginModal" class="modal">
+    <div id="loginModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <span class="close-btn" onclick="closeLogin()" role="button" aria-label="Cerrar ventana">&times;</span>
             
             <div class="modal-header">
                 <img src="ESCUDO3.png" alt="Escudo Serranoble" class="modal-logo">
-                <h2>Portal Ciudadano</h2>
+                <h2 id="modalTitle">Portal Ciudadano</h2>
                 <p class="modal-sub">Accedé a los trámites y servicios del municipio</p>
             </div>
 
             <!-- Pestañas de Navegación -->
-            <div class="auth-tabs">
-                <button type="button" class="tab-btn active" onclick="switchAuthTab('login')">Iniciar Sesión</button>
-                <button type="button" class="tab-btn" onclick="switchAuthTab('register')">Registrarse</button>
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="tab-btn active" role="tab" aria-selected="true" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" onclick="switchAuthTab('register')">Registrarse</button>
             </div>
 
             <!-- FORMULARIO 1: INICIAR SESIÓN -->
@@ -134,7 +137,7 @@
                     <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
-                <div id="errorAlertLogin" class="alert-error" style="display: none;">
+                <div id="errorAlertLogin" class="alert-error" style="display: none;" role="alert">
                     Por favor, completá todos los campos correctamente.
                 </div>
 
@@ -167,10 +170,11 @@
 
                 <div class="form-group">
                     <label for="regPass">Contraseña</label>
-                    <input type="password" id="regPass" placeholder="Creá una contraseña" required>
+                    <input type="password" id="regPass" placeholder="Mín. 6 caracteres (Mayús, minús, núm, símbolo)" required>
+                    <small style="display: block; font-size: 0.75rem; color: #64748B; margin-top: 4px;">Debe contener al menos una mayúscula, una minúscula, un número y un símbolo.</small>
                 </div>
 
-                <div id="errorAlertRegister" class="alert-error" style="display: none;">
+                <div id="errorAlertRegister" class="alert-error" style="display: none;" role="alert">
                     Por favor, completá todos los datos para crear tu cuenta.
                 </div>
 
@@ -184,7 +188,7 @@
         <p>&copy; 2026 Municipalidad de Serranoble — ISFTP Ing. Otto Krause</p>
     </footer>
 
-    <!-- VINCULACIÓN CON EL SCRIPT EXTERNO -->
+    <!-- VINCULACIÓN CON EL SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

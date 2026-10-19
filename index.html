@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Municipio de Serranoble - Sitio Oficial</title>
+    <title>Municipio de Serranoble - Portal Ciudadano</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -18,14 +18,17 @@
             </div>
         </div>
 
-        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú">☰</button>
+        <!-- RELOJ Y CLIMA CIUDADANO -->
+        <div class="reloj-ciudadano" id="relojCiudadano"></div>
+
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú de navegación" aria-expanded="false">☰</button>
 
         <nav id="navMenu">
             <ul class="nav-links">
                 <li><a href="index.html" class="active-link" onclick="closeMenu()">Inicio</a></li>
                 <li><a href="noticias.html" onclick="closeMenu()">Noticias</a></li>
-                <li><a href="#servicios" onclick="closeMenu()">Servicios</a></li>
-                <li><a href="#contacto" onclick="closeMenu()">Contacto</a></li>
+                <li><a href="tramites.html" onclick="closeMenu()">Trámites</a></li>
+                <li><a href="contacto.html" onclick="closeMenu()">Contacto</a></li>
                 <li class="mobile-only-btn" id="mobileAuthContainer">
                     <button class="btn-primary" onclick="openLogin(); closeMenu()">Acceder</button>
                 </li>
@@ -38,62 +41,87 @@
         </div>
     </header>
 
-    <!-- SECCIÓN HERO PRINCIPAL -->
-    <section class="hero">
+    <!-- BANNER HERO PRINCIPAL DE INGRESO CON FONDO DE CIUDAD -->
+    <section class="hero hero-index">
         <div class="hero-content">
-            <h1>Bienvenido al Portal Ciudadano de Serranoble</h1>
-            <p>Accedé a trámites en línea, información pública y los principales servicios municipales desde un solo lugar.</p>
+            <h1>Portal Ciudadano del Municipio de Serranoble</h1>
+            <p>Accedé al sistema de gestión digital para reclamos urbanos, solicitudes en línea y novedades oficiales de la comunidad.</p>
             <div class="hero-buttons">
                 <button class="btn-primary btn-large" onclick="openLogin()">Iniciar Sesión / Registro</button>
-                <a href="noticias.html" class="btn-secondary btn-large">Ver Novedades</a>
+                <a href="tramites.html" class="btn-secondary btn-large" style="text-decoration: none;">Gestión de Trámites</a>
             </div>
         </div>
     </section>
 
-    <!-- SECCIÓN DE SERVICIOS -->
-    <section id="servicios" class="servicios-container">
-        <h2>Servicios Municipales</h2>
-        <p class="subtitle">Gestiones rápidas y eficientes al servicio de la comunidad</p>
-        
-        <div class="cards-grid">
-            <div class="card">
-                <div class="icon">📄</div>
-                <h3>Trámites en Línea</h3>
-                <p>Solicitá turnos, certificados de vecindad y guías comerciales sin moverte de tu hogar.</p>
+    <!-- CONTENIDO PRINCIPAL DE LA HOME -->
+    <main style="padding: 50px 5%; max-width: 1100px; margin: 0 auto;">
+
+        <!-- BLOQUE: SERVICIOS Y RECLAMACIONES URBANAS (RF-02) -->
+        <section style="margin-bottom: 50px;">
+            <h2 style="color: var(--azul-oscuro); text-align: center; margin-bottom: 8px;">Servicios Urbanos y Solicitudes</h2>
+            <p style="text-align: center; color: #718096; margin-bottom: 30px; font-size: 0.95rem;">Elegí el servicio que querés solicitar en el Portal Ciudadano</p>
+
+            <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                
+                <a href="tramites.html" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="padding: 30px 20px; text-align: center; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; cursor: pointer;">
+                        <div class="icon" style="font-size: 2.5rem; margin-bottom: 12px;">💡</div>
+                        <h3 style="color: var(--azul-oscuro); font-size: 1.15rem; margin-bottom: 8px;">Recambio de Luminarias</h3>
+                        <p style="font-size: 0.88rem; color: #718096;">Reporte de alumbrado público fuera de servicio o roturas.</p>
+                    </div>
+                </a>
+
+                <a href="tramites.html" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="padding: 30px 20px; text-align: center; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; cursor: pointer;">
+                        <div class="icon" style="font-size: 2.5rem; margin-bottom: 12px;">🧹</div>
+                        <h3 style="color: var(--azul-oscuro); font-size: 1.15rem; margin-bottom: 8px;">Limpieza de Espacios Públicos</h3>
+                        <p style="font-size: 0.88rem; color: #718096;">Solicitudes de desmalezado, recolección y mantenimiento.</p>
+                    </div>
+                </a>
+
+                <a href="tramites.html" style="text-decoration: none; color: inherit;">
+                    <div class="card" style="padding: 30px 20px; text-align: center; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px; cursor: pointer;">
+                        <div class="icon" style="font-size: 2.5rem; margin-bottom: 12px;">🚧</div>
+                        <h3 style="color: var(--azul-oscuro); font-size: 1.15rem; margin-bottom: 8px;">Bacheo Urbano</h3>
+                        <p style="font-size: 0.88rem; color: #718096;">Aviso de baches, arreglo de calzadas y reparación de calles.</p>
+                    </div>
+                </a>
+
             </div>
-            <div class="card">
-                <div class="icon">💳</div>
-                <h3>Pago de Tasas</h3>
-                <p>Consultá tu estado de deuda e imprimí o aboná las tasas municipales de forma segura.</p>
+        </section>
+
+        <!-- BLOQUE 2: ÚLTIMA NOTICIA DESTACADA -->
+        <section style="background: var(--crema); padding: 35px; border-radius: 12px; border: 1px solid #E2E8F0;">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 20px;">
+                <div style="flex: 1; min-width: 280px;">
+                    <span style="background: var(--dorado); color: var(--azul-oscuro); padding: 4px 10px; border-radius: 4px; font-weight: 700; font-size: 0.8rem; text-transform: uppercase;">Novedad Oficial</span>
+                    <h3 style="color: var(--azul-oscuro); font-size: 1.4rem; margin: 12px 0 8px 0;">Obra del Viaducto Norte en Serranoble</h3>
+                    <p style="color: #4A5568; font-size: 0.95rem; line-height: 1.5; margin-bottom: 15px;">Comenzaron las obras del nuevo viaducto para conectar las zonas altas con el centro urbano del municipio.</p>
+                    <a href="noticias.html" style="color: var(--azul-oscuro); font-weight: 700; text-decoration: underline;">Ver más noticias →</a>
+                </div>
+                <div style="width: 260px; height: 160px; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                    <img src="obra.jpg.jpg" alt="Obra Serranoble" style="width: 100%; height: 100%; object-fit: cover;">
+                </div>
             </div>
-            <div class="card">
-                <div class="icon">🗣️</div>
-                <h3>Atención al Vecino</h3>
-                <p>Realizá reclamos sobre servicios públicos, alumbrado y mantenimiento de caminos rural.</p>
-            </div>
-            <div class="card">
-                <div class="icon">🌳</div>
-                <h3>Medio Ambiente</h3>
-                <p>Información sobre recolección diferenciada, uso de acuíferos y calendarios verdes.</p>
-            </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <!-- MODAL DE ACCESO / REGISTRO -->
-    <div id="loginModal" class="modal">
+    <div id="loginModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <span class="close-btn" onclick="closeLogin()" role="button" aria-label="Cerrar ventana">&times;</span>
             
             <div class="modal-header">
                 <img src="ESCUDO3.png" alt="Escudo Serranoble" class="modal-logo">
-                <h2>Portal Ciudadano</h2>
+                <h2 id="modalTitle">Portal Ciudadano</h2>
                 <p class="modal-sub">Accedé a los trámites y servicios del municipio</p>
             </div>
 
             <!-- Pestañas de Navegación -->
-            <div class="auth-tabs">
-                <button type="button" class="tab-btn active" onclick="switchAuthTab('login')">Iniciar Sesión</button>
-                <button type="button" class="tab-btn" onclick="switchAuthTab('register')">Registrarse</button>
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="tab-btn active" role="tab" aria-selected="true" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" onclick="switchAuthTab('register')">Registrarse</button>
             </div>
 
             <!-- FORMULARIO 1: INICIAR SESIÓN -->
@@ -108,7 +136,7 @@
                     <input type="password" id="password" placeholder="••••••••" required>
                 </div>
 
-                <div id="errorAlertLogin" class="alert-error" style="display: none;">
+                <div id="errorAlertLogin" class="alert-error" style="display: none;" role="alert">
                     Por favor, completá todos los campos correctamente.
                 </div>
 
@@ -141,10 +169,11 @@
 
                 <div class="form-group">
                     <label for="regPass">Contraseña</label>
-                    <input type="password" id="regPass" placeholder="Creá una contraseña" required>
+                    <input type="password" id="regPass" placeholder="Mín. 6 caracteres (Mayús, minús, núm, símbolo)" required>
+                    <small style="display: block; font-size: 0.75rem; color: #64748B; margin-top: 4px;">Debe contener al menos una mayúscula, una minúscula, un número y un símbolo.</small>
                 </div>
 
-                <div id="errorAlertRegister" class="alert-error" style="display: none;">
+                <div id="errorAlertRegister" class="alert-error" style="display: none;" role="alert">
                     Por favor, completá todos los datos para crear tu cuenta.
                 </div>
 
@@ -154,11 +183,11 @@
     </div>
 
     <!-- FOOTER -->
-    <footer id="contacto">
+    <footer>
         <p>&copy; 2026 Municipalidad de Serranoble — muniserranoble@correo.com</p>
     </footer>
 
-    <!-- VINCULACIÓN CON EL SCRIPT EXTERNO (SPRINT 2) -->
+    <!-- VINCULACIÓN CON EL SCRIPT -->
     <script src="script.js"></script>
 </body>
 </html>

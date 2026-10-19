@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto y Canales de Atención - Municipio de Serranoble</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- ENCABEZADO Y NAVEGACIÓN -->
+    <header class="navbar">
+        <div class="logo">
+            <img src="ESCUDO3.png" alt="Escudo de Serranoble" class="logo-img">
+            <div class="logo-text">
+                <h2>MUNICIPIO DE</h2>
+                <h1>SERRANOBLE</h1>
+            </div>
+        </div>
+
+        <!-- RELOJ Y CLIMA CIUDADANO -->
+        <div class="reloj-ciudadano" id="relojCiudadano"></div>
+
+        <button class="mobile-menu-btn" onclick="toggleMenu()" aria-label="Abrir menú de navegación" aria-expanded="false">☰</button>
+
+        <nav id="navMenu">
+            <ul class="nav-links">
+                <li><a href="index.html" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="noticias.html" onclick="closeMenu()">Noticias</a></li>
+                <li><a href="tramites.html" onclick="closeMenu()">Trámites</a></li>
+                <li><a href="contacto.html" class="active-link" onclick="closeMenu()">Contacto</a></li>
+                <li class="mobile-only-btn" id="mobileAuthContainer">
+                    <button class="btn-primary" onclick="openLogin(); closeMenu()">Acceder</button>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Contenedor dinámico de sesión (Escritorio) -->
+        <div id="desktopAuthContainer">
+            <button class="btn-primary desktop-btn" onclick="openLogin()">Acceder</button>
+        </div>
+    </header>
+
+    <!-- BANNER CONTACTO CON FONDO INSTITUCIONAL -->
+    <section class="hero hero-secondary hero-contacto">
+        <div class="hero-content">
+            <h1>Contacto y Canales de Atención</h1>
+            <p>Información institucional, dependencias oficiales y vías de comunicación con el municipio.</p>
+        </div>
+    </section>
+
+    <!-- CONTENIDO PRINCIPAL DE CONTACTO -->
+    <main style="padding: 50px 5% 30px 5%; max-width: 1000px; margin: 0 auto;">
+
+        <!-- Canales y Teléfonos -->
+        <div class="cards-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 25px; margin-bottom: 40px;">
+            
+            <div class="card" style="text-align: left; padding: 25px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px;">
+                <div class="icon" style="font-size: 2rem; margin-bottom: 10px;">📞</div>
+                <h4 style="color: var(--azul-oscuro); margin-bottom: 8px;">Líneas Habilitadas</h4>
+                <p style="font-size: 0.9rem; color: #4A5568; line-height: 1.5;">
+                    <strong>Mesa de Entradas:</strong> (0380) 441-2345<br>
+                    <strong>Atención al Vecino:</strong> 147 (Línea gratuita)<br>
+                    <strong>WhatsApp Consultas:</strong> 3804-688613
+                </p>
+            </div>
+
+            <div class="card" style="text-align: left; padding: 25px; background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 10px;">
+                <div class="icon" style="font-size: 2rem; margin-bottom: 10px;">🚨</div>
+                <h4 style="color: var(--azul-oscuro); margin-bottom: 8px;">Emergencias 24 hs</h4>
+                <p style="font-size: 0.9rem; color: #4A5568; line-height: 1.5;">
+                    <strong>Defensa Civil:</strong> 103 / 911<br>
+                    <strong>Centro de Salud Comunitario:</strong> 107<br>
+                    <strong>Bomberos Voluntarios:</strong> 100
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Seccion de Correos Electrónicos Institucionales -->
+        <div style="background: var(--crema); padding: 30px; border-radius: 10px; border: 2px dashed var(--dorado); margin-bottom: 40px;">
+            <h3 style="color: var(--azul-oscuro); margin-bottom: 15px; text-align: center;">✉️ Correos Electrónicos por Área</h3>
+            <p style="text-align: center; color: #4A5568; font-size: 0.93rem; margin-bottom: 20px;">Para consultas administrativas o envío de documentación digital, podés escribirnos directamente a:</p>
+            
+            <div style="display: flex; flex-direction: column; gap: 10px; font-size: 0.93rem; color: #2D3748; max-width: 600px; margin: 0 auto;">
+                <div style="display: flex; justify-content: space-between; background: #FFFFFF; padding: 10px 15px; border-radius: 6px; border: 1px solid #E2E8F0;">
+                    <span><strong>Atención al Público:</strong></span>
+                    <a href="mailto:atencion@muniserranoble.gob.ar" style="color: var(--azul-oscuro); text-decoration: none; font-weight: 600;">atencion@muniserranoble.gob.ar</a>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: #FFFFFF; padding: 10px 15px; border-radius: 6px; border: 1px solid #E2E8F0;">
+                    <span><strong>Obras y Servicios Públicos:</strong></span>
+                    <a href="mailto:obras@muniserranoble.gob.ar" style="color: var(--azul-oscuro); text-decoration: none; font-weight: 600;">obras@muniserranoble.gob.ar</a>
+                </div>
+                <div style="display: flex; justify-content: space-between; background: #FFFFFF; padding: 10px 15px; border-radius: 6px; border: 1px solid #E2E8F0;">
+                    <span><strong>Gestión Ambiental:</strong></span>
+                    <a href="mailto:ambiente@muniserranoble.gob.ar" style="color: var(--azul-oscuro); text-decoration: none; font-weight: 600;">ambiente@muniserranoble.gob.ar</a>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- MAPA INTERACTIVO DE UBICACIÓN -->
+    <section style="width: 100%; height: 350px; border-top: 4px solid var(--dorado); overflow: hidden;">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.388718228522!2d-66.85871212450892!3d-29.412953275246733!2m3!1f0!0f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9427da255a1dfed1%3A0x6b77241cfbe13c6b!2sCasa%20de%20Gobierno!5e0!3m2!1ses!2sar!4v1700000000000!5m2!1ses!2sar" 
+            width="100%" 
+            height="100%" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </section>
+
+    <!-- PIE INSTITUCIONAL ESTILO GOBIERNO DE LA RIOJA -->
+    <div style="background: #111827; color: #FFFFFF; padding: 40px 5%; border-top: 1px solid #1F2937;">
+        <div style="max-width: 1100px; margin: 0 auto; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 30px;">
+            
+            <!-- Logo e Identidad -->
+            <div style="display: flex; align-items: center; gap: 15px;">
+                <img src="ESCUDO3.png" alt="Escudo Serranoble" style="height: 65px; width: auto;">
+                <div>
+                    <h3 style="font-size: 1.2rem; font-weight: 800; color: #FFFFFF; letter-spacing: 1px; margin: 0;">MUNICIPIO DE</h3>
+                    <h2 style="font-size: 1.5rem; font-weight: 900; color: var(--dorado-brillante); margin: 0;">SERRANOBLE</h2>
+                </div>
+            </div>
+
+            <!-- Datos de Contacto Directos -->
+            <div style="font-size: 0.92rem; color: #D1D5DB; line-height: 1.8;">
+                <h4 style="color: #FFFFFF; font-size: 1.05rem; margin-bottom: 10px; border-bottom: 2px solid var(--dorado); display: inline-block; padding-bottom: 3px;">Información de Contacto</h4>
+                <p>📍 <strong>Dirección:</strong> Av. San Martín 150 - Palacio Municipal</p>
+                <p>🕒 <strong>Horarios:</strong> 07:00 a 13:00 hs (Lunes a Viernes)</p>
+                <p>📞 <strong>Teléfono:</strong> 0800-444-0578 / (0380) 441-2345</p>
+                <p>💬 <strong>WhatsApp:</strong> 3804-688613</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL DE ACCESO / REGISTRO -->
+    <div id="loginModal" class="modal" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()" role="button" aria-label="Cerrar ventana">&times;</span>
+            
+            <div class="modal-header">
+                <img src="ESCUDO3.png" alt="Escudo Serranoble" class="modal-logo">
+                <h2 id="modalTitle">Portal Ciudadano</h2>
+                <p class="modal-sub">Accedé a los trámites y servicios del municipio</p>
+            </div>
+
+            <!-- Pestañas de Navegación -->
+            <div class="auth-tabs" role="tablist">
+                <button type="button" class="tab-btn active" role="tab" aria-selected="true" onclick="switchAuthTab('login')">Iniciar Sesión</button>
+                <button type="button" class="tab-btn" role="tab" aria-selected="false" onclick="switchAuthTab('register')">Registrarse</button>
+            </div>
+
+            <!-- FORMULARIO 1: INICIAR SESIÓN -->
+            <form id="loginForm" class="auth-form active" onsubmit="validarLogin(event)">
+                <div class="form-group">
+                    <label for="usuario">DNI, CUIL o Email</label>
+                    <input type="text" id="usuario" placeholder="Ej: 38123456" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" placeholder="••••••••" required>
+                </div>
+
+                <div id="errorAlertLogin" class="alert-error" style="display: none;" role="alert">
+                    Por favor, completá todos los campos correctamente.
+                </div>
+
+                <button type="submit" class="btn-primary btn-block">Ingresar</button>
+            </form>
+
+            <!-- FORMULARIO 2: REGISTRO CIUDADANO -->
+            <form id="registerForm" class="auth-form" onsubmit="validarRegistro(event)">
+                <div class="form-group">
+                    <label for="regNombre">Nombre y Apellido</label>
+                    <input type="text" id="regNombre" placeholder="Ej: María González" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="regDni">DNI / CUIL (solo números)</label>
+                    <input 
+                        type="text" 
+                        id="regDni" 
+                        placeholder="Ej: 38123456" 
+                        maxlength="11" 
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="regEmail">Correo Electrónico</label>
+                    <input type="email" id="regEmail" placeholder="ejemplo@correo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="regPass">Contraseña</label>
+                    <input type="password" id="regPass" placeholder="Mín. 6 caracteres (Mayús, minús, núm, símbolo)" required>
+                    <small style="display: block; font-size: 0.75rem; color: #64748B; margin-top: 4px;">Debe contener al menos una mayúscula, una minúscula, un número y un símbolo.</small>
+                </div>
+
+                <div id="errorAlertRegister" class="alert-error" style="display: none;" role="alert">
+                    Por favor, completá todos los datos para crear tu cuenta.
+                </div>
+
+                <button type="submit" class="btn-primary btn-block">Crear Cuenta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2026 Municipalidad de Serranoble — muniserranoble@correo.com</p>
+    </footer>
+
+    <!-- VINCULACIÓN CON EL SCRIPT -->
+    <script src="script.js"></script>
+</body>
+</html>
