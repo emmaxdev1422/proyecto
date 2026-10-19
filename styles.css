@@ -25,6 +25,11 @@
     font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
     background-color: var(--gris-fondo);
     color: var(--texto-principal);
@@ -203,7 +208,6 @@ main {
     background-repeat: no-repeat;
 }
 
-/* Capa azul semitransparente sobre la imagen */
 .hero::before {
     content: '';
     position: absolute;
@@ -250,7 +254,6 @@ main {
     flex-wrap: wrap;
 }
 
-/* BACKGROUNDS ESPECÍFICOS POR PÁGINA */
 .hero-index {
     background-image: url('https://images.unsplash.com/photo-1720033029110-72e22fe5e1c0?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=NHwxMjA3fDA%3D');
 }
@@ -291,6 +294,8 @@ main {
     transition: var(--transicion);
     display: flex;
     flex-direction: column;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .noticia-card:hover {
@@ -378,6 +383,8 @@ main {
     transition: var(--transicion);
     position: relative;
     overflow: hidden;
+    max-width: 100%;
+    box-sizing: border-box;
 }
 
 .card::before {
@@ -665,4 +672,8 @@ footer {
 
 body {
     animation: fadeInPage 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+iframe {
+    max-width: 100%;
 }
