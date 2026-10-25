@@ -136,22 +136,22 @@
 
             <!-- FORMULARIO 2: REGISTRO CIUDADANO -->
             <form id="registerForm" class="auth-form" onsubmit="validarRegistro(event)">
-                <div class="form-group">
-                    <label for="regNombre">Nombre y Apellido</label>
-                    <input type="text" id="regNombre" placeholder="Ej: María González" required>
-                </div>
+    <div class="form-group">
+        <label for="regNombre">Nombre y Apellido</label>
+        <input type="text" id="regNombre" placeholder="Ej: María González" required>
+    </div>
 
-                <div class="form-group">
-                    <label for="regDni">DNI / CUIL (solo números)</label>
-                    <input 
-                        type="text" 
-                        id="regDni" 
-                        placeholder="Ej: 38123456" 
-                        maxlength="11" 
-                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
-                        required
-                    >
-                </div>
+    <div class="form-group">
+        <label for="regDni">DNI / CUIL (solo números)</label>
+        <input 
+            type="text" 
+            id="regDni" 
+            placeholder="Ej: 38123456" 
+            maxlength="11" 
+            oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+            required
+        >
+    </div>
 
                 <div class="form-group">
                     <label for="regEmail">Correo Electrónico</label>
