@@ -305,7 +305,7 @@ function cerrarSesion() {
 }
 
 /* ==========================================================================
-   6. GESTIÓN DE TRÁMITES EN LÍNEA
+   6. GESTIÓN DE TRÁMITES Y RECLAMOS (CON UBICACIÓN DESGLOSADA)
    ========================================================================== */
 function actualizarPanelTramites() {
     const panelRestringido = document.getElementById('tramiteRestringido');
@@ -330,10 +330,13 @@ function enviarTramite(event) {
     event.preventDefault();
 
     const tipo = document.getElementById('tipoTramite').value;
+    const calle = document.getElementById('tramiteCalle').value.trim();
+    const barrio = document.getElementById('tramiteBarrio').value.trim();
+    const referencia = document.getElementById('tramiteReferencia').value.trim();
     const detalle = document.getElementById('detalleTramite').value.trim();
     const alertExito = document.getElementById('mensajeExitoTramite');
 
-    if (!tipo || !detalle || !usuarioActivo) return;
+    if (!tipo || !calle || !barrio || !usuarioActivo) return;
 
     const todosLosTramites = JSON.parse(localStorage.getItem('tramitesSerranoble')) || [];
 
@@ -342,7 +345,12 @@ function enviarTramite(event) {
         dniCiudadano: usuarioActivo.dni,
         nombreCiudadano: usuarioActivo.nombre,
         tipo: tipo,
-        detalle: detalle,
+        ubicacion: {
+            calle: calle,
+            barrio: barrio,
+            referencia: referencia || 'Sin referencia'
+        },
+        detalle: detalle || 'Sin observaciones adicionales',
         fecha: new Date().toLocaleDateString('es-AR'),
         estado: 'En Proceso'
     };
@@ -373,13 +381,21 @@ function renderizarMisTramites() {
 
     let html = '';
     misTramites.reverse().forEach(t => {
+        // Compatibilidad por si existen registros previos sin ubicación desglosada
+        const ubicacionStr = t.ubicacion 
+            ? `📍 <b>Calle:</b> ${t.ubicacion.calle} | <b>Barrio:</b> ${t.ubicacion.barrio} ${t.ubicacion.referencia !== 'Sin referencia' ? `<br><i>(Ref: ${t.ubicacion.referencia})</i>` : ''}`
+            : `📍 ${t.detalle}`;
+
+        const detalleStr = t.ubicacion ? t.detalle : '';
+
         html += `
-            <div style="background: #FFFFFF; padding: 18px; border-radius: 8px; border-left: 4px solid var(--dorado); box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; border-left-width: 4px;">
+            <div style="background: #FFFFFF; padding: 18px; border-radius: 8px; border-left: 4px solid var(--dorado); box-shadow: 0 2px 5px rgba(0,0,0,0.03); border: 1px solid #E2E8F0; border-left-width: 4px; margin-bottom: 12px;">
                 <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                     <strong style="color: var(--azul-oscuro); font-size: 1.05rem;">${t.tipo}</strong>
                     <span style="background: #FEFCBF; color: #744210; padding: 3px 10px; border-radius: 4px; font-size: 0.78rem; font-weight: 700;">${t.estado}</span>
                 </div>
-                <p style="font-size: 0.93rem; color: #4A5568; margin-bottom: 10px;">${t.detalle}</p>
+                <p style="font-size: 0.9rem; color: #2D3748; margin-bottom: 6px;">${ubicacionStr}</p>
+                ${detalleStr && detalleStr !== 'Sin observaciones adicionales' ? `<p style="font-size: 0.85rem; color: #718096; margin-bottom: 8px;">💬 <b>Detalle:</b> ${detalleStr}</p>` : ''}
                 <span style="font-size: 0.8rem; color: #A0AEC0;">Fecha de solicitud: ${t.fecha}</span>
             </div>
         `;
@@ -389,13 +405,21 @@ function renderizarMisTramites() {
 }
 
 /* ==========================================================================
-   7. EVENTOS GLOBALES DE CIERRE DE MODAL
+   7. EVENTOS GLOBALES DE CIERRE DE MODAL (CORREGIDO PARA SELECCIÓN DE TEXTO)
    ========================================================================== */
+let mousedownTarget = null;
+
+window.addEventListener('mousedown', (event) => {
+    mousedownTarget = event.target;
+});
+
 window.addEventListener('click', (event) => {
     const modal = document.getElementById('loginModal');
-    if (event.target === modal) {
+    // El modal solo se cierra si se hizo clic y soltó en el fondo oscuro
+    if (modal && event.target === modal && mousedownTarget === modal) {
         closeLogin();
     }
+    mousedownTarget = null;
 });
 
 window.addEventListener('keydown', (event) => {
