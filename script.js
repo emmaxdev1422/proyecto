@@ -389,13 +389,21 @@ function renderizarMisTramites() {
 }
 
 /* ==========================================================================
-   7. EVENTOS GLOBALES DE CIERRE DE MODAL
+   7. EVENTOS GLOBALES DE CIERRE DE MODAL (CORREGIDO PARA SELECCIÓN DE TEXTO)
    ========================================================================== */
+let mousedownTarget = null;
+
+window.addEventListener('mousedown', (event) => {
+    mousedownTarget = event.target;
+});
+
 window.addEventListener('click', (event) => {
     const modal = document.getElementById('loginModal');
-    if (event.target === modal) {
+    // El modal solo se cierra si el usuario hizo clic en el fondo Y soltó el mouse en el fondo.
+    if (modal && event.target === modal && mousedownTarget === modal) {
         closeLogin();
     }
+    mousedownTarget = null;
 });
 
 window.addEventListener('keydown', (event) => {
