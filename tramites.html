@@ -65,19 +65,44 @@
             <p style="color: #718096; margin-bottom: 25px; font-size: 0.92rem;">Completá los datos requeridos para generar tu número de gestión.</p>
 
             <form onsubmit="enviarTramite(event)">
+                <!-- Tipo de Servicio -->
                 <div class="form-group">
-                    <label for="tipoTramite">Tipo de Servicio / Reclamo</label>
+                    <label for="tipoTramite">Tipo de Servicio / Reclamo *</label>
                     <select id="tipoTramite" style="width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.95rem;" required>
                         <option value="" disabled selected>Seleccioná un servicio...</option>
                         <option value="Recambio de Lámparas / Luminarias">Recambio de Lámparas / Luminarias</option>
                         <option value="Limpieza de Espacios Públicos">Limpieza de Espacios Públicos</option>
                         <option value="Bacheo Urbano">Bacheo Urbano</option>
+                        <option value="Espacios Verdes y Plazas">Espacios Verdes y Plazas</option>
+                        <option value="Agua y Saneamiento">Agua y Saneamiento</option>
                     </select>
                 </div>
 
+                <!-- Ubicación Desglosada -->
+                <fieldset style="border: 1px solid #CBD5E0; border-radius: 8px; padding: 18px; margin-top: 15px; background: #F8FAFC;">
+                    <legend style="font-size: 0.9rem; font-weight: 700; color: var(--azul-oscuro); padding: 0 8px;">📍 Ubicación del Reclamo</legend>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px;">
+                        <div class="form-group" style="margin-top: 0;">
+                            <label for="tramiteCalle" style="font-size: 0.85rem;">Calle y Altura *</label>
+                            <input type="text" id="tramiteCalle" style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.9rem;" placeholder="Ej: San Martín 450" required>
+                        </div>
+                        <div class="form-group" style="margin-top: 0;">
+                            <label for="tramiteBarrio" style="font-size: 0.85rem;">Barrio o Sector *</label>
+                            <input type="text" id="tramiteBarrio" style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.9rem;" placeholder="Ej: Centro / Los Aromos" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 0;">
+                        <label for="tramiteReferencia" style="font-size: 0.85rem;">Referencia (Opcional)</label>
+                        <input type="text" id="tramiteReferencia" style="width: 100%; padding: 10px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.9rem;" placeholder="Ej: A media cuadra de la plaza / Esquina...">
+                    </div>
+                </fieldset>
+
+                <!-- Detalle del Problema (Opcional) -->
                 <div class="form-group" style="margin-top: 15px;">
-                    <label for="detalleTramite">Detalle o Ubicación del Reclamo</label>
-                    <textarea id="detalleTramite" rows="4" style="width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.95rem;" placeholder="Escribí la dirección exacta o los detalles relevantes..." required></textarea>
+                    <label for="detalleTramite">Detalle del problema (Opcional)</label>
+                    <textarea id="detalleTramite" rows="3" style="width: 100%; padding: 12px; border: 1px solid #CBD5E0; border-radius: 6px; font-size: 0.95rem; resize: vertical;" placeholder="Agregue observaciones adicionales si lo considera necesario..."></textarea>
                 </div>
 
                 <div id="mensajeExitoTramite" class="alert-success" style="display: none; background: #DEF7EC; color: #03543F; padding: 12px; border-radius: 6px; margin-top: 15px; font-weight: 600; text-align: center;">
@@ -136,22 +161,22 @@
 
             <!-- FORMULARIO 2: REGISTRO CIUDADANO -->
             <form id="registerForm" class="auth-form" onsubmit="validarRegistro(event)">
-    <div class="form-group">
-        <label for="regNombre">Nombre y Apellido</label>
-        <input type="text" id="regNombre" placeholder="Ej: María González" required>
-    </div>
+                <div class="form-group">
+                    <label for="regNombre">Nombre y Apellido</label>
+                    <input type="text" id="regNombre" placeholder="Ej: María González" required>
+                </div>
 
-    <div class="form-group">
-        <label for="regDni">DNI / CUIL (solo números)</label>
-        <input 
-            type="text" 
-            id="regDni" 
-            placeholder="Ej: 38123456" 
-            maxlength="11" 
-            oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
-            required
-        >
-    </div>
+                <div class="form-group">
+                    <label for="regDni">DNI / CUIL (solo números)</label>
+                    <input 
+                        type="text" 
+                        id="regDni" 
+                        placeholder="Ej: 38123456" 
+                        maxlength="11" 
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '')" 
+                        required
+                    >
+                </div>
 
                 <div class="form-group">
                     <label for="regEmail">Correo Electrónico</label>
